@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import QuoteForm from "./components/QuoteForm";
 import Quotes from "./containers/Quotes";
-import {
-  addQuote,
-  removeQuote,
-  upvoteQuote,
-  downvoteQuote,
-} from "./actions/quotes";
 
 class App extends Component {
   render() {

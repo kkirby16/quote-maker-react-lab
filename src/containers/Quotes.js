@@ -6,7 +6,13 @@ import { upvoteQuote } from "../actions/quotes";
 import { downvoteQuote } from "../actions/quotes";
 
 class Quotes extends Component {
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   render() {
+    const { quotes, removeQuote, upvoteQuote, downvoteQuote } = this.props;
+
     return (
       <div>
         <hr />
@@ -17,15 +23,18 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              {this.props.quotes.map((quote) => {
+              {console.log(this.props.quotes)}
+
+              {quotes.map((quote) => (
                 <QuoteCard
                   removeQuote={this.props.removeQuote}
                   upvoteQuote={this.props.upvoteQuote}
                   downvoteQuote={this.props.downvoteQuote}
                   key={quote.id}
                   quote={quote}
-                />;
-              })}
+                />
+              ))}
+
               {/*
                 TODO:
 
@@ -40,9 +49,8 @@ class Quotes extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    quotes: state,
-  };
+  console.log("mapStateToProps:", state);
+  return { quotes: state };
 };
 
 const mapDispatchToProps = (dispatch) => {
