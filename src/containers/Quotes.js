@@ -11,8 +11,6 @@ class Quotes extends Component {
   }
 
   render() {
-    const { quotes, removeQuote, upvoteQuote, downvoteQuote } = this.props;
-
     return (
       <div>
         <hr />
@@ -25,7 +23,7 @@ class Quotes extends Component {
             <div className="col-md-4">
               {console.log(this.props.quotes)}
 
-              {quotes.map((quote) => (
+              {this.props.quotes.map((quote) => (
                 <QuoteCard
                   removeQuote={this.props.removeQuote}
                   upvoteQuote={this.props.upvoteQuote}
@@ -50,7 +48,7 @@ class Quotes extends Component {
 
 const mapStateToProps = (state) => {
   console.log("mapStateToProps:", state);
-  return { quotes: state };
+  return { quotes: state.quotes };
 };
 
 const mapDispatchToProps = (dispatch) => {
